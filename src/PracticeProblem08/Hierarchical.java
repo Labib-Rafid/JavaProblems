@@ -18,6 +18,12 @@ class FullTimeEmployee extends Employee{
     FullTimeEmployee(String name, int id, String department, double FixedSalary){
         super(name, id, department);
     }
+
+    @Override
+    void calculatePay() {
+        super.calculatePay();
+        System.out.println("The salary is: " + this.FixedSalary);
+    }
 }
 
 class PartTimeEmployee extends Employee{
@@ -26,6 +32,12 @@ class PartTimeEmployee extends Employee{
     }
     double hourlyRate = 300.35;
     int hoursWorked = 5;
+
+    @Override
+    void calculatePay() {
+        super.calculatePay();
+        System.out.println("The Salary is: " + this.hourlyRate * this.hoursWorked);
+    }
 }
 class ContractEmployee extends Employee{
     String projectName;
@@ -40,6 +52,7 @@ public class Hierarchical {
         Employee ob1 = new Employee("Labib", 2022831048, "SWE");
         PartTimeEmployee obj2 = new PartTimeEmployee("Rafid", 320, "SS");
         ContractEmployee ob3 = new ContractEmployee("Sovon", 341232, "EEE");
+        obj2.hourlyRate = 10000;
         obj2.calculatePay();
         ob3.projectName = "Reference";    ob3.contractAmount = 20000;
         System.out.println("Project Name : " + ob3.projectName + " " + "Contract Amount: " + ob3.contractAmount + " " );
